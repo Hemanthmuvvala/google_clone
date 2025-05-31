@@ -41,12 +41,32 @@ class _SearchbarState extends State<Searchbar> {
                 ),
               ),
               IconButton(
-                icon: const Icon(Icons.mic, color: Colors.white),
-                onPressed: () {},
+                onPressed: () {
+                  print('Mic icon tapped');
+                },
+                iconSize: 40, // Controls the tappable area
+                padding: EdgeInsets.zero, // Optional: removes extra padding
+                constraints: BoxConstraints(), // Removes size constraints
+                icon: Image.asset(
+                  'assets/images/mic.png',
+                  width: 40, // Set image width
+                  height: 40, // Set image height
+                  fit: BoxFit.contain,
+                ),
               ),
               IconButton(
-                icon: const Icon(Icons.camera_alt, color: Colors.white),
+                
                 onPressed: () {},
+                iconSize:40,
+                padding:EdgeInsets.zero,
+                constraints:BoxConstraints(),
+                icon:Image.asset(
+                  'assets/images/lens.png',
+                  width:40,
+                  height:40,
+                  fit:BoxFit.contain,
+                ),
+                
               ),
             ],
           ),

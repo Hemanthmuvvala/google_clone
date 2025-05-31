@@ -15,6 +15,7 @@ class _HomepageState extends State<Homepage> {
   final fixedsizedBox = const SizedBox(
     height: 15,
   );
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -93,15 +94,14 @@ class _HomepageState extends State<Homepage> {
                 ],
               ),
             ),
-          const  Divider(
+            const Divider(
               color: const Color.fromARGB(255, 74, 74, 74),
             ),
-          const  Listviews(),
-          fixedsizedBox,
-          NewsCard(),
-          NewsCard(),
-          NewsCard(),
-
+            const Listviews(),
+            fixedsizedBox,
+            const NewsCard(),
+            const NewsCard(),
+            const NewsCard(),
           ],
         ),
       ),
