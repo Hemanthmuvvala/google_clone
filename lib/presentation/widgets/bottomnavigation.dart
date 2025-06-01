@@ -19,6 +19,26 @@ class _BottomnavigationBarState extends State<BottomnavigationBar> {
     const ActivityScreen(),
   ];
   int currentIndex = 0;
+  Widget _buildIcon(IconData icon, int index) {
+    bool isSelected = currentIndex == index;
+
+    if (isSelected) {
+      return AnimatedContainer(
+        duration: Duration(milliseconds: 500),
+        curve: Curves.bounceOut,
+        height: 30,
+        width: 50,
+        decoration: BoxDecoration(
+          color: const Color.fromARGB(255, 202, 212, 249).withOpacity(0.3),
+          borderRadius: BorderRadius.circular(22),
+        ),
+        child: Icon(icon),
+      );
+    } else {
+      return Icon(icon);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,20 +46,34 @@ class _BottomnavigationBarState extends State<BottomnavigationBar> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,
         onTap: (position) {
-          currentIndex = position;
+         
           setState(() {
-            
+             currentIndex = position;
           });
         },
-        backgroundColor: Colors.white,
+        elevation: 0,
+        selectedItemColor: Color(0xFFAABFFF),
+        //
+        selectedLabelStyle:
+            const TextStyle(fontSize: 12, height: 1), // SAME height
+        unselectedLabelStyle: const TextStyle(fontSize: 12, height: 1),
+        backgroundColor: Colors.grey[850],
         type: BottomNavigationBarType.fixed,
         items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(
-              icon: Icon(Icons.search_outlined), label: 'search'),
+              icon: _buildIcon(Icons.home, 0), label: 'Home'),
           BottomNavigationBarItem(
-              icon: Icon(Icons.notifications_none), label: 'notifications'),
-             BottomNavigationBarItem(icon: Icon(Icons.schedule),label:'activity'),
+            icon: _buildIcon(Icons.search, 1),
+            label: 'Search',
+          ),
+          BottomNavigationBarItem(
+            icon: _buildIcon(Icons.notifications_none, 2),
+            label: 'Notifications',
+          ),
+          BottomNavigationBarItem(
+            icon: _buildIcon(Icons.schedule, 3),
+            label: 'Activity',
+          ),
         ],
       ),
     );

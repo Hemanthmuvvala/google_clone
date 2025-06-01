@@ -10,6 +10,11 @@ class ActivityScreen extends StatefulWidget {
 class _ActivityScreenState extends State<ActivityScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return  Scaffold(
+      
+      appBar:AppBar(
+        title:const Text('Activity screen'),
+      ),
+    );
   }
 }

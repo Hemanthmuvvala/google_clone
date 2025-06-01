@@ -42,7 +42,7 @@ class _SearchbarState extends State<Searchbar> {
               ),
               IconButton(
                 onPressed: () {
-                  print('Mic icon tapped');
+            
                 },
                 iconSize: 40, // Controls the tappable area
                 padding: EdgeInsets.zero, // Optional: removes extra padding

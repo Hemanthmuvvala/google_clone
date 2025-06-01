@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:google_clone/presentation/pages/homepage.dart';
+
 class SearchbarPage extends StatefulWidget {
   const SearchbarPage({super.key});
 
@@ -14,7 +16,6 @@ class _SearchbarPageState extends State<SearchbarPage> {
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
-         
           children: [
             SizedBox(
               height: 20,
@@ -29,7 +30,10 @@ class _SearchbarPageState extends State<SearchbarPage> {
                   decoration: InputDecoration(
                     prefixIcon: IconButton(
                       onPressed: () {
-                        Navigator.pop(context);
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>const Homepage()));
                       },
                       icon: Icon(
                         Icons.arrow_back,
@@ -44,13 +48,27 @@ class _SearchbarPageState extends State<SearchbarPage> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           IconButton(
-                            icon: const Icon(Icons.mic, color: Colors.white),
+                            iconSize: 30,
+                            padding: EdgeInsets.zero,
+                            constraints:const BoxConstraints(),
+                            icon: Image.asset(
+                              'assets/images/mic.png',
+                              width: 30, // Set image width
+                              height: 30, // Set image height
+                              fit: BoxFit.contain,
+                            ),
                             onPressed: () {},
                           ),
                           IconButton(
-                            icon: const Icon(Icons.camera_alt,
-                                color: Colors.white),
                             onPressed: () {},
+                            iconSize: 30,
+                            constraints: BoxConstraints(),
+                            padding: EdgeInsets.zero,
+                            icon: Image.asset(
+                              'assets/images/lens.png',
+                              width: 30,
+                              height: 30,
+                            ),
                           ),
                         ],
                       ),
@@ -69,19 +87,19 @@ class _SearchbarPageState extends State<SearchbarPage> {
                 ),
               ),
             ),
-           ListTile(
-            dense: true,
-            leading: Icon(
-              Icons.schedule,
-              color: const Color.fromARGB(255, 99, 99, 99),
-              size: 20,
+            ListTile(
+              dense: true,
+              leading: Icon(
+                Icons.schedule,
+                color: const Color.fromARGB(255, 99, 99, 99),
+                size: 20,
+              ),
+              title: Text(
+                'jai babu',
+                style: TextStyle(color: Colors.white, fontSize: 15),
+              ),
             ),
-            title: Text(
-              'jai babu',
-              style: TextStyle(color: Colors.white, fontSize: 15),
-            ),
-          ),
-          //Expanded(child: Listtiles()),
+            //Expanded(child: Listtiles()),
           ],
         ),
       ),
