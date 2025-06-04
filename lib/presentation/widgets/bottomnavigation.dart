@@ -4,14 +4,15 @@ import 'package:google_clone/presentation/pages/homepage.dart';
 import 'package:google_clone/presentation/pages/notification.dart';
 import 'package:google_clone/presentation/pages/searchbar_page.dart';
 
-class BottomnavigationBar extends StatefulWidget {
-  const BottomnavigationBar({super.key});
+class BottomnavigationBarCustom extends StatefulWidget {
+  const BottomnavigationBarCustom({super.key});
 
   @override
-  State<BottomnavigationBar> createState() => _BottomnavigationBarState();
+  State<BottomnavigationBarCustom> createState() =>
+      _BottomnavigationBarCustomState();
 }
 
-class _BottomnavigationBarState extends State<BottomnavigationBar> {
+class _BottomnavigationBarCustomState extends State<BottomnavigationBarCustom> {
   final List<Widget> screens = [
     const Homepage(),
     const SearchbarPage(),
@@ -23,13 +24,13 @@ class _BottomnavigationBarState extends State<BottomnavigationBar> {
     bool isSelected = currentIndex == index;
 
     if (isSelected) {
-      return AnimatedContainer(
-        duration: Duration(milliseconds: 500),
-        curve: Curves.bounceOut,
+      return Container(
+        // duration: Duration(milliseconds: 500),
+        // curve: Curves.bounceIn,
         height: 30,
-        width: 50,
+        width: 60,
         decoration: BoxDecoration(
-          color: const Color.fromARGB(255, 202, 212, 249).withOpacity(0.3),
+          color: const Color.fromARGB(255, 173, 189, 246).withOpacity(0.25),
           borderRadius: BorderRadius.circular(22),
         ),
         child: Icon(icon),
@@ -46,9 +47,8 @@ class _BottomnavigationBarState extends State<BottomnavigationBar> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,
         onTap: (position) {
-         
           setState(() {
-             currentIndex = position;
+            currentIndex = position;
           });
         },
         elevation: 0,
@@ -67,7 +67,30 @@ class _BottomnavigationBarState extends State<BottomnavigationBar> {
             label: 'Search',
           ),
           BottomNavigationBarItem(
-            icon: _buildIcon(Icons.notifications_none, 2),
+            icon: Stack(
+              children: [
+                _buildIcon(Icons.notifications_none, 2),
+                // Positioned(
+                //   top: 0.5,
+                //   left: 10,
+                 
+                //   child: Container(
+                //     height: 13.5,
+                //     width: 13.5,
+                //     decoration: BoxDecoration(
+                //       color: Color.fromARGB(255, 180, 124, 104),
+                //       borderRadius: BorderRadius.circular(30),
+                //     ),
+                //     child: Center(
+                //       child: Text(
+                //         '3',
+                //         style: TextStyle(fontSize: 10), // small font for badge
+                //       ),
+                //     ),
+                //   ),
+                // ),
+              ],
+            ),
             label: 'Notifications',
           ),
           BottomNavigationBarItem(

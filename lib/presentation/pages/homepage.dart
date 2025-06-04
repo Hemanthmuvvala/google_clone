@@ -19,12 +19,12 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[900],
+   //   backgroundColor: Colors.grey[900],
       body: SingleChildScrollView(
         child: Column(
           children: [
             Padding(
-              padding: EdgeInsets.fromLTRB(10, 30, 10, 10),
+              padding: EdgeInsets.fromLTRB(20, 30, 20, 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [

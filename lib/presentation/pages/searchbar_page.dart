@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:google_clone/presentation/pages/homepage.dart';
+import 'package:google_clone/presentation/widgets/bottomnavigation.dart';
+import 'package:google_clone/presentation/widgets/searchpage_history.dart';
 
 class SearchbarPage extends StatefulWidget {
   const SearchbarPage({super.key});
@@ -12,19 +13,19 @@ class _SearchbarPageState extends State<SearchbarPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.grey[900],
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Center(
               child: SizedBox(
                 width: 350,
                 child: TextField(
-                  style: TextStyle(color: Colors.white),
+                  style: const TextStyle(color: Colors.white),
                   autofocus: true,
                   cursorColor: Colors.blue,
                   decoration: InputDecoration(
@@ -33,15 +34,16 @@ class _SearchbarPageState extends State<SearchbarPage> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) =>const Homepage()));
+                                builder: (context) =>
+                                    BottomnavigationBarCustom()));
                       },
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.arrow_back,
                         color: Colors.white,
                       ),
                     ),
                     hintText: 'Search',
-                    hintStyle: TextStyle(color: Colors.white),
+                    hintStyle: const TextStyle(color: Colors.white),
                     suffixIcon: Padding(
                       padding: const EdgeInsets.only(right: 10),
                       child: Row(
@@ -50,11 +52,11 @@ class _SearchbarPageState extends State<SearchbarPage> {
                           IconButton(
                             iconSize: 30,
                             padding: EdgeInsets.zero,
-                            constraints:const BoxConstraints(),
+                            constraints: const BoxConstraints(),
                             icon: Image.asset(
                               'assets/images/mic.png',
-                              width: 30, // Set image width
-                              height: 30, // Set image height
+                              width: 30,
+                              height: 30,
                               fit: BoxFit.contain,
                             ),
                             onPressed: () {},
@@ -73,12 +75,12 @@ class _SearchbarPageState extends State<SearchbarPage> {
                         ],
                       ),
                     ),
-                    enabledBorder: UnderlineInputBorder(
+                    enabledBorder: const UnderlineInputBorder(
                       borderSide: BorderSide(
                         color: Colors.grey,
                       ),
                     ),
-                    focusedBorder: UnderlineInputBorder(
+                    focusedBorder: const UnderlineInputBorder(
                       borderSide: BorderSide(
                         color: Colors.grey,
                       ),
@@ -89,17 +91,40 @@ class _SearchbarPageState extends State<SearchbarPage> {
             ),
             ListTile(
               dense: true,
-              leading: Icon(
-                Icons.schedule,
-                color: const Color.fromARGB(255, 99, 99, 99),
-                size: 20,
+              leading: Container(
+                height: 30,
+                width: 30,
+                decoration: BoxDecoration(
+                  color: Colors.grey.withOpacity(0.1),
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                child: Icon(
+                  Icons.schedule_outlined,
+                  color: const Color.fromARGB(255, 99, 99, 99),
+                  size: 20,
+                ),
               ),
               title: Text(
-                'jai babu',
+                'jai babu slogan template',
                 style: TextStyle(color: Colors.white, fontSize: 15),
               ),
             ),
-            //Expanded(child: Listtiles()),
+            const SearchpageHistory(
+              searchHistory: 'who is hemanth  muvvala',
+            ),
+            const SearchpageHistory(
+              searchHistory: 'who has most runs in ipl',
+            ),
+            const SearchpageHistory(
+              searchHistory: 'chat gpt',
+            ),
+            const SearchpageHistory(
+              searchHistory: 'today ipl match',
+            ),
+            const SearchpageHistory(
+              searchHistory: 'Linked in',
+            ),
+           
           ],
         ),
       ),

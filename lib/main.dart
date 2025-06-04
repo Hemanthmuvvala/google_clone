@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_clone/presentation/widgets/bottomnavigation.dart';
-
 void main() {
   runApp(const MyApp());
 }
@@ -23,7 +22,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner:false,
      
      // onGenerateRoute:onGenerate,
-      home:const  BottomnavigationBar(),
+      home:const BottomnavigationBarCustom(),
     );
   }
 }
