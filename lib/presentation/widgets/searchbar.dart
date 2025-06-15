@@ -46,7 +46,7 @@ class _SearchbarState extends State<Searchbar> {
                 },
                 iconSize: 40, // Controls the tappable area
                 padding: EdgeInsets.zero, // Optional: removes extra padding
-                constraints: BoxConstraints(), // Removes size constraints
+                constraints: const BoxConstraints(), // Removes size constraints
                 icon: Image.asset(
                   'assets/images/mic.png',
                   width: 40, // Set image width
@@ -59,7 +59,7 @@ class _SearchbarState extends State<Searchbar> {
                 onPressed: () {},
                 iconSize:40,
                 padding:EdgeInsets.zero,
-                constraints:BoxConstraints(),
+                constraints:const BoxConstraints(),
                 icon:Image.asset(
                   'assets/images/lens.png',
                   width:40,

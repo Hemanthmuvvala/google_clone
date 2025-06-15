@@ -23,7 +23,7 @@ class _HomepageState extends State<Homepage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Padding(
+            const Padding(
               padding: EdgeInsets.fromLTRB(20, 30, 20, 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -47,7 +47,7 @@ class _HomepageState extends State<Homepage> {
                 ],
               ),
             ),
-            Center(
+            const Center(
                 child: Text(
               'Google',
               style: TextStyle(
@@ -55,7 +55,7 @@ class _HomepageState extends State<Homepage> {
                   color: Colors.white,
                   fontWeight: FontWeight.w700),
             )),
-            SizedBox(
+            const SizedBox(
               height: 35,
             ),
             const Searchbar(),
@@ -95,7 +95,7 @@ class _HomepageState extends State<Homepage> {
               ),
             ),
             const Divider(
-              color: const Color.fromARGB(255, 74, 74, 74),
+              color: Color.fromARGB(255, 74, 74, 74),
             ),
             const Listviews(),
             fixedsizedBox,

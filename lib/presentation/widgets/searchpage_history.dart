@@ -20,15 +20,15 @@ class _SearchpageHistoryState extends State<SearchpageHistory> {
           color: Colors.grey.withOpacity(0.1),
           borderRadius: BorderRadius.circular(30),
         ),
-        child: Icon(
+        child: const Icon(
           Icons.schedule_outlined,
-          color: const Color.fromARGB(255, 99, 99, 99),
+          color: Color.fromARGB(255, 99, 99, 99),
           size: 20,
         ),
       ),
       title: Text(
         widget.searchHistory,
-        style: TextStyle(color: Colors.white, fontSize: 15),
+        style: const TextStyle(color: Colors.white, fontSize: 15),
       ),
     );
   }

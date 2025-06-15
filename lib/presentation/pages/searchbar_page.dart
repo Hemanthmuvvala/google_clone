@@ -35,7 +35,7 @@ class _SearchbarPageState extends State<SearchbarPage> {
                             context,
                             MaterialPageRoute(
                                 builder: (context) =>
-                                    BottomnavigationBarCustom()));
+                                    const BottomnavigationBarCustom()));
                       },
                       icon: const Icon(
                         Icons.arrow_back,
@@ -64,7 +64,7 @@ class _SearchbarPageState extends State<SearchbarPage> {
                           IconButton(
                             onPressed: () {},
                             iconSize: 30,
-                            constraints: BoxConstraints(),
+                            constraints: const BoxConstraints(),
                             padding: EdgeInsets.zero,
                             icon: Image.asset(
                               'assets/images/lens.png',
@@ -98,13 +98,13 @@ class _SearchbarPageState extends State<SearchbarPage> {
                   color: Colors.grey.withOpacity(0.1),
                   borderRadius: BorderRadius.circular(30),
                 ),
-                child: Icon(
+                child: const Icon(
                   Icons.schedule_outlined,
-                  color: const Color.fromARGB(255, 99, 99, 99),
+                  color: Color.fromARGB(255, 99, 99, 99),
                   size: 20,
                 ),
               ),
-              title: Text(
+              title: const Text(
                 'jai babu slogan template',
                 style: TextStyle(color: Colors.white, fontSize: 15),
               ),

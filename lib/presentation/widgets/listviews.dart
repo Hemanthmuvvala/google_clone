@@ -21,9 +21,9 @@ class _ListviewsState extends State<Listviews> {
       final titles = ['Air Quality 60', 'T20 Mini Cup', 'Noise Level 30'];
       final subtitles = ['Satisfactory', 'Starts soon', 'Low noise'];
       final icons = [
-        Icon(Icons.water, color: Colors.white),
-        Icon(Icons.sports_cricket, color: Colors.white),
-        Icon(Icons.volume_up, color: Colors.white),
+        const Icon(Icons.water, color: Colors.white),
+        const Icon(Icons.sports_cricket, color: Colors.white),
+        const Icon(Icons.volume_up, color: Colors.white),
       ];
       final avatarColors = [Colors.green, Colors.red, Colors.blue];
 
@@ -46,7 +46,7 @@ class _ListviewsState extends State<Listviews> {
               padding: const EdgeInsets.only(right: 40),
               child: Text(
                 titles[index],
-                style:  TextStyle(color: Colors.white,fontSize:15,fontWeight:FontWeight.bold),
+                style:  const TextStyle(color: Colors.white,fontSize:15,fontWeight:FontWeight.bold),
                 
               ),
             ),
@@ -59,8 +59,8 @@ class _ListviewsState extends State<Listviews> {
                 ),
                 CircleAvatar(
                   backgroundColor: avatarColors[index],
-                  child: icons[index],
                   radius: 14,
+                  child: icons[index],
                 ),
               ],
             )

@@ -52,7 +52,7 @@ class _BottomnavigationBarCustomState extends State<BottomnavigationBarCustom> {
           });
         },
         elevation: 0,
-        selectedItemColor: Color(0xFFAABFFF),
+        selectedItemColor: const Color(0xFFAABFFF),
         //
         selectedLabelStyle:
             const TextStyle(fontSize: 12, height: 1), // SAME height
