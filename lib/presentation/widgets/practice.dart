@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_clone/models/modelclass.dart';
 import 'package:http/http.dart' as http;
 
+
 class Practice extends StatefulWidget {
   const Practice({super.key});
 
@@ -19,7 +20,8 @@ class _PracticeState extends State<Practice> {
       isLoading = true;
     });
 
-    final response = await http.get(Uri.parse("https://jsonplaceholder.typicode.com/posts"));
+    final response =
+        await http.get(Uri.parse("https://jsonplaceholder.typicode.com/posts"));
 
     if (response.statusCode == 200) {
       final List decodedData = jsonDecode(response.body);
@@ -44,24 +46,25 @@ class _PracticeState extends State<Practice> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: isLoading
-          ? const Center(
-              child: CircularProgressIndicator(color: Colors.blue),
-            )
-          : ListView.builder(
-              itemCount: modelClass.length,
-              itemBuilder: (context, index) {
-                final item = modelClass[index];
-                return Padding(
-                  padding: const EdgeInsets.all(5.0),
-                  child: ListTile(
-                    title: Text(item.title.toString()),
-                    subtitle: Text(item.body),
-                    tileColor: Colors.blue[400],
-                  ),
-                );
-              },
-            ),
+      // body: isLoading
+      //     ? const Center(
+      //         child: CircularProgressIndicator(color: Colors.blue),
+      //       )
+      //     : ListView.builder(
+      //         itemCount: modelClass.length,
+      //         itemBuilder: (context, index) {
+      //           final item = modelClass[index];
+      //           return Padding(
+      //             padding: const EdgeInsets.all(5.0),
+      //             child: ListTile(
+      //               title: Text(item.title.toString()),
+      //               subtitle: Text(item.body),
+      //               tileColor: Colors.blue[400],
+      //             ),
+      //           );
+      //         },
+      //       ),
+ 
     );
   }
 }
