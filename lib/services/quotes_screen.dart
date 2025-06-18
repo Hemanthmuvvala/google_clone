@@ -12,9 +12,9 @@ class QuotesScreen extends StatefulWidget {
 class _QuotesScreenState extends State<QuotesScreen> {
   late Future<QuotesApiModel> _futureCall;
   final QuotesRepository quotesRepository = QuotesRepository();
+
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _futureCall = quotesRepository.getQuote();
   }
@@ -28,34 +28,77 @@ class _QuotesScreenState extends State<QuotesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Quotes'),
-        backgroundColor: Colors.blue[200],
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: refresh,
+        label: const Text("New Quote"),
+        icon: const Icon(Icons.refresh),
+        backgroundColor: Colors.deepPurpleAccent,
       ),
-      body: Center(
-        child: FutureBuilder(
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Color(0xFFe0c3fc), Color(0xFF8ec5fc)],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+        ),
+        child: Center(
+          child: FutureBuilder<QuotesApiModel>(
             future: _futureCall,
-            builder: (context, AsyncSnapshot<QuotesApiModel> snapshot) {
+            builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
-                return const CircularProgressIndicator();
+                return const CircularProgressIndicator(color: Colors.white);
               } else if (snapshot.hasError) {
-                return Text('${snapshot.error}');
+                return Text('${snapshot.error}',
+                    style: const TextStyle(color: Colors.white));
               } else if (snapshot.hasData) {
                 final quoteData = snapshot.data!;
-                return Column(
-                  children: [
-                    ListTile(
-                      title: Text(quoteData.author),
-                      subtitle:Text(quoteData.quote),
+                return Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Card(
+                    elevation: 12,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(24),
                     ),
-                    TextButton(
-                        onPressed: refresh, child: const Text('Get another Quote'))
-                  ],
+                    child: Padding(
+                      padding: const EdgeInsets.all(24),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            '"${quoteData.quote}"',
+                            style: const TextStyle(
+                              fontSize: 20,
+                              fontStyle: FontStyle.italic,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.white,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                          const SizedBox(height: 20),
+                          Align(
+                            alignment: Alignment.bottomRight,
+                            child: Text(
+                              "- ${quoteData.author}",
+                              style: const TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.deepPurple,
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
                 );
               } else {
-                return const Text('error');
+                return const Text('No quote found!',
+                    style: TextStyle(color: Colors.white));
               }
-            }),
+            },
+          ),
+        ),
       ),
     );
   }

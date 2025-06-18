@@ -4,8 +4,8 @@ import 'package:google_clone/models/quotes_api.dart';
 
 class QuotesRepository {
   Future<QuotesApiModel> getQuote() async {
-    var urlEndPoint = Uri.parse('http://127.0.0.1:5000/quote');
-    final quoteResponse = await http.get(urlEndPoint);
+   
+    final quoteResponse = await http.get(Uri.parse('https://flask-api-mh25.onrender.com/quote'));
     if (quoteResponse.statusCode == 200) {
       final jsonData = jsonDecode(quoteResponse.body);
       return QuotesApiModel.fromJson(jsonData);
